@@ -1,0 +1,62 @@
+:root {
+  --fundo: #e9eef3;
+  --tinta: #14213d;
+  --suave: #4a5a72;
+  --borda: #b9c4d2;
+  --perigo: #b3202f;
+  --perigo-bg: #fbe9eb;
+  --seguro: #1b6e46;
+  --seguro-bg: #e4f4ec;
+  --neutro-bg: #fff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+main { max-width: 36rem; margin: 0 auto; padding: 3rem 1.25rem 2rem; }
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 16vw, 6rem);
+  line-height: 1;
+  margin: 0 0 1rem;
+  letter-spacing: -0.03em;
+}
+.intro { color: var(--suave); margin: 0 0 2rem; max-width: 34rem; }
+.campo { margin-bottom: 1rem; }
+label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
+.linha { display: flex; gap: 0.5rem; }
+input {
+  flex: 1; min-width: 0;
+  font: inherit; font-size: 1.1rem;
+  padding: 0.7rem 0.8rem;
+  border: 2px solid var(--borda); border-radius: 6px;
+  background: var(--neutro-bg); color: var(--tinta);
+}
+button {
+  font: inherit; font-weight: 600; cursor: pointer;
+  border-radius: 6px; padding: 0.7rem 1rem;
+}
+#mostrar { background: transparent; color: var(--tinta); border: 2px solid var(--borda); }
+#verificar { background: var(--tinta); color: #fff; border: 2px solid var(--tinta); width: 100%; font-size: 1.05rem; }
+button:hover { filter: brightness(1.12); }
+input:focus-visible, button:focus-visible { outline: 3px solid #2f6fed; outline-offset: 2px; }
+#verificar:disabled { opacity: 0.6; cursor: wait; }
+
+#resultado {
+  margin-top: 1.5rem; padding: 1rem 1.1rem;
+  background: var(--neutro-bg);
+  border-left: 8px solid var(--borda); border-radius: 6px;
+}
+#resultado p { margin: 0.25rem 0; }
+#resultado[data-estado="vazou"] { border-left-color: var(--perigo); background: var(--perigo-bg); }
+#resultado[data-estado="ok"] { border-left-color: var(--seguro); background: var(--seguro-bg); }
+#msg-vazamento { font-size: 1.25rem; font-weight: 700; }
+#resultado[data-estado="vazou"] #msg-vazamento { color: var(--perigo); }
+#resultado[data-estado="ok"] #msg-vazamento { color: var(--seguro); }
+#msg-aviso { color: var(--suave); font-size: 0.9rem; }
+#msg-aviso:empty { display: none; }
+.rodape { margin-top: 2.5rem; font-size: 0.85rem; color: var(--suave); }

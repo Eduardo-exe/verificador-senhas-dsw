@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vazou? – verificador de senhas vazadas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Vazou?</h1>
+    <p class="intro">Descubra se uma senha já apareceu em vazamentos de dados. A senha não sai do seu navegador: só uma parte do hash dela é consultada.</p>
+
+    <div class="campo">
+      <label for="senha">Senha para testar</label>
+      <div class="linha">
+        <input id="senha" type="password" autocomplete="off" spellcheck="false">
+        <button id="mostrar" type="button" aria-pressed="false">Mostrar</button>
+      </div>
+    </div>
+
+    <button id="verificar" type="button">Verificar</button>
+
+    <div id="resultado" role="status" aria-live="polite" hidden>
+      <p id="msg-vazamento"></p>
+      <p id="msg-forca"></p>
+      <p id="msg-aviso"></p>
+    </div>
+
+    <p class="rodape">Teste senhas parecidas com as que você usa, não as de contas importantes. Dados: Pwned Passwords (Have I Been Pwned).</p>
+  </main>
+
+  <script src="fallback.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
